@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="wrapper">
+        
+            <h1 class="text-center font-extrabold text-4xl text-white pt-4">WEATHER APP</h1>
+        <!-- tab container -->
+        <div class="flex mx-auto max-w-[550px] justify-between mt-16">
+            <button data-userWeather class="text-white rounded-md p-[8px] mx-3">YOUR WEATHER</button>
+            <button data-searchWeather class="text-white rounded-md p-[8px] mx-3">SEARCH WEATHER</button>
+        </div>
+        <!-- Weather container -->
+        <div class="weatherContainer flex flex-col  items-center mt-14">
+            <!-- grant location -->
+             <div class="grantLocationContainer  ">
+                <img src="./assets/Location.png" class="rounded-full" width="80" height="80" loading="lazy">
+                <p class="font-medium text-[30px]">Grant Location Access</p>
+                <p class="mt-3">Allow Access To Get Weather information</p>
+                <button class="btn1 mt-9 w-[170px] rounded-md p-1.5 text-center hover:cursor-pointer" data-grantAccess>Grant Access</button>
+             </div>
+             <!-- Search form -->
+              <form data-searchForm class="searchForm  items-center">
+                <input type="text" placeholder="Search for City..." class="inpt w-[320px] sm:w-[480px] md:w-[520px] p-2 rounded-md" data-searchInput>
+                <button class=" mx-2" type="submit">
+                    <img src="./assets/search.png" width="35" height="35" alt="Search button">
+                </button>
+              </form>
+              <!-- Loading Screen Container -->
+               <div class="loadingContainer">
+                <img src="./assets/Vp3R.gif" alt="loading gif" width="150" height="150" >
+                <p class="text-[20px]">Loading</p>
+               </div>
+               <!-- Show weahter info -->
+                <div class="userInfoContainer ">
+                    <!-- City and icon -->
+                    <div class="flex space-x-4 items-center">
+                        <p data-cityName class="text-[35px]"></p>
+                        <img data-countryIcon class="h-7">
+                    </div>
+                    <!-- Weather desc -->
+                    <p data-weatherDesc class="text-[20px] mt-3.5"></p>
+                    <!-- Weather icon -->
+                    <img data-weatherIcon class="h-[70px] w-[90px]">
+                    <!-- Weather temp -->
+                    <p data-temp class="font-semibold text-[50px]"></p>
+                    <!-- 3 cards -->
+                    <div class="flex mt-5 ">
+                        <!-- card1 -->
+                        <div class="card mr-10 flex flex-col p-3 sm:p-4 md:p-6 items-center justify-center w-[90px] md:w-[200px] sm:w-[150px] rounded-md">
+                            <img src="./assets/wind.png" alt="WindSpeed" width="40" height="30">
+                            <p>WINDSPEED</p>
+                            <p data-windSpeed></p>
+                        </div>
+                        <!-- card2 -->
+                        <div class="card mr-10 flex flex-col items-center p-3 sm:p-4 md:p-6 justify-center w-[90px] md:w-[200px] sm:w-[150px] rounded-md">
+                            <img src="./assets/humidity1.png" alt="Humidity" width="40" height="30">
+                            <p>HUMIDITY</p>
+                            <p data-humidity></p>
+                        </div>
+                        <!-- card3 -->
+                        <div class="card flex flex-col items-center p-3 sm:p-4 md:p-6 justify-center w-[90px] md:w-[200px] sm:w-[150px] rounded-md">
+                            <img src="./assets/clouds.png" alt="Moisture" width="30" height="30">
+                            <p>CLOUDS</p>
+                            <p data-cloud></p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+        </div>
+      
+
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
