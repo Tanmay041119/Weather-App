@@ -14,19 +14,16 @@ userTab.classList.add("property");
 getFromStorage();
 function switchTab(tab){
     if(tab!=currentTab){
-        console.log('Tab changed');
         currentTab.classList.remove("property");
         currentTab=tab;
         currentTab.classList.add("property");
     }
     if(!searchForm.classList.contains("active")){
-        console.log('opened Search form');
         grantContainer.classList.remove("active");
         userInfoContainer.classList.remove("active");
         searchForm.classList.add("active");
     }
     else{
-        console.log('Opened user weather');
         searchForm.classList.remove("active");
         userInfoContainer.classList.remove("active");
         getFromStorage(); 
@@ -55,8 +52,6 @@ function getFromStorage(){
     //grant container invisible
     grantContainer.classList.remove("active");
     loadingScreen.classList.add("active");
-    console.log(lat);
-    console.log(long);
     try{
     const response= await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`);
     const data= await response.json();
@@ -90,7 +85,6 @@ function renderWeatherInfo(weatherInfo){
 }
 grantButton.addEventListener('click',getLocation);
 function getLocation(){
-    console.log('hi');
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showPosition);
     }
@@ -106,8 +100,6 @@ function showPosition(position){
     }
     sessionStorage.setItem("userCoordinate",JSON.stringify(userCoordinates));
     // ab ui pr show karo
-    console.log('hi');
-    console.log(userCoordinates);
     fetchUserWeatherInfo(userCoordinates);
 }
 const searchInput=document.querySelector("[data-searchInput]");
